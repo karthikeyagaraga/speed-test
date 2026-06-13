@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WiFi Speed Test</h1>
+            <p class="subtitle">Check your internet speed</p>
+        </header>
+
+        <main>
+            <div class="status-display">
+                <div class="metric">
+                    <div class="metric-label">Download Speed</div>
+                    <div class="metric-value" id="downloadSpeed">-- Mbps</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Upload Speed</div>
+                    <div class="metric-value" id="uploadSpeed">-- Mbps</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Ping</div>
+                    <div class="metric-value" id="ping">-- ms</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-text" id="progressText">Ready to test</p>
+            </div>
+
+            <button class="start-button" id="startButton">Start Speed Test</button>
+
+            <div class="details-section">
+                <h2>Test Details</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value" id="statusValue">Idle</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Test Time:</span>
+                        <span class="detail-value" id="testTime">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Data Transferred:</span>
+                        <span class="detail-value" id="dataTransferred">-</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 WiFi Speed Test. Test your connection speed easily.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
