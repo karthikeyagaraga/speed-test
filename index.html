@@ -3,62 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WiFi Speed Test</title>
+    <title>FastNet | Internet Speed Test</title>
+    <meta name="description" content="A beautiful speed test website to measure your internet performance with style.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>WiFi Speed Test</h1>
-            <p class="subtitle">Check your internet speed</p>
+    <div class="page-shell">
+        <nav class="navbar">
+            <a class="brand" href="#">FastNet</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#test">Test now</a>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Reliable connection insights</p>
+                <h1>Measure your internet speed in seconds.</h1>
+                <p class="hero-text">Run a fast browser-based speed test to see your download, upload, and ping performance in one clean experience.</p>
+                <div class="hero-actions">
+                    <a class="primary-btn" href="#test">Start testing</a>
+                    <a class="secondary-btn" href="#features">See features</a>
+                </div>
+                <ul class="hero-highlights">
+                    <li>No signup required</li>
+                    <li>Responsive on any device</li>
+                    <li>Instant results</li>
+                </ul>
+            </div>
+
+            <div class="hero-panel">
+                <h2>Live performance snapshot</h2>
+                <div class="mini-metrics">
+                    <div>
+                        <span>Download</span>
+                        <strong>Up to 300 Mbps</strong>
+                    </div>
+                    <div>
+                        <span>Upload</span>
+                        <strong>Up to 120 Mbps</strong>
+                    </div>
+                    <div>
+                        <span>Ping</span>
+                        <strong>Under 25 ms</strong>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <main>
-            <div class="status-display">
-                <div class="metric">
-                    <div class="metric-label">Download Speed</div>
-                    <div class="metric-value" id="downloadSpeed">-- Mbps</div>
+            <section id="features" class="section">
+                <div class="section-heading">
+                    <p class="eyebrow">Why people love it</p>
+                    <h2>Everything you need for a simple, modern speed check</h2>
                 </div>
-                <div class="metric">
-                    <div class="metric-label">Upload Speed</div>
-                    <div class="metric-value" id="uploadSpeed">-- Mbps</div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>Quick results</h3>
+                        <p>Get a reliable snapshot of your network performance without waiting long.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Clean interface</h3>
+                        <p>Modern visuals and readable metrics make the experience easier to understand.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Works anywhere</h3>
+                        <p>Use it on desktop, tablet, or mobile with a responsive layout designed for all screens.</p>
+                    </article>
                 </div>
-                <div class="metric">
-                    <div class="metric-label">Ping</div>
-                    <div class="metric-value" id="ping">-- ms</div>
-                </div>
-            </div>
+            </section>
 
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+            <section id="how-it-works" class="section process-section">
+                <div class="section-heading">
+                    <p class="eyebrow">How it works</p>
+                    <h2>Three simple steps to understand your connection</h2>
                 </div>
-                <p class="progress-text" id="progressText">Ready to test</p>
-            </div>
-
-            <button class="start-button" id="startButton">Start Speed Test</button>
-
-            <div class="details-section">
-                <h2>Test Details</h2>
-                <div class="details-grid">
-                    <div class="detail-item">
-                        <span class="detail-label">Status:</span>
-                        <span class="detail-value" id="statusValue">Idle</span>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span>1</span>
+                        <h3>Start the test</h3>
+                        <p>Tap the button and let the app begin measuring your connection performance.</p>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Test Time:</span>
-                        <span class="detail-value" id="testTime">-</span>
+                    <div class="step-card">
+                        <span>2</span>
+                        <h3>Watch progress</h3>
+                        <p>See your download, upload, and ping values appear in real time as the test runs.</p>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Data Transferred:</span>
-                        <span class="detail-value" id="dataTransferred">-</span>
+                    <div class="step-card">
+                        <span>3</span>
+                        <h3>Review results</h3>
+                        <p>Use the information to spot issues or confirm your network is performing as expected.</p>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section id="test" class="section test-section">
+                <div class="container">
+                    <header>
+                        <h1>WiFi Speed Test</h1>
+                        <p class="subtitle">Check your internet speed</p>
+                    </header>
+
+                    <main>
+                        <div class="status-display">
+                            <div class="metric">
+                                <div class="metric-label">Download Speed</div>
+                                <div class="metric-value" id="downloadSpeed">-- Mbps</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Upload Speed</div>
+                                <div class="metric-value" id="uploadSpeed">-- Mbps</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Ping</div>
+                                <div class="metric-value" id="ping">-- ms</div>
+                            </div>
+                        </div>
+
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <p class="progress-text" id="progressText">Ready to test</p>
+                        </div>
+
+                        <button class="start-button" id="startButton">Start Speed Test</button>
+
+                        <div class="details-section">
+                            <h2>Test Details</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value" id="statusValue">Idle</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Test Time:</span>
+                                    <span class="detail-value" id="testTime">-</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Data Transferred:</span>
+                                    <span class="detail-value" id="dataTransferred">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <footer>
+                        <p>&copy; 2024 FastNet. Test your connection speed easily.</p>
+                    </footer>
+                </div>
+            </section>
         </main>
 
-        <footer>
-            <p>&copy; 2024 WiFi Speed Test. Test your connection speed easily.</p>
+        <footer class="site-footer">
+            <p>Built with HTML, CSS, and JavaScript.</p>
         </footer>
     </div>
 

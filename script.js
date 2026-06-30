@@ -21,29 +21,26 @@ class SpeedTest {
 
         this.testInProgress = true;
         this.startButton.disabled = true;
+        this.startButton.textContent = 'Testing...';
         this.resetMetrics();
         this.testStartTime = Date.now();
 
         try {
-            // Step 1: Measure Ping
             this.updateProgress(0, 'Measuring ping...');
             const ping = await this.measurePing();
             this.pingEl.textContent = ping.toFixed(2) + ' ms';
             this.pingEl.parentElement.classList.add('active');
 
-            // Step 2: Download Speed
             this.updateProgress(33, 'Testing download speed...');
             const downloadSpeed = await this.measureDownloadSpeed();
             this.downloadSpeedEl.textContent = downloadSpeed.toFixed(2) + ' Mbps';
             this.downloadSpeedEl.parentElement.classList.add('active');
 
-            // Step 3: Upload Speed
             this.updateProgress(66, 'Testing upload speed...');
             const uploadSpeed = await this.measureUploadSpeed();
             this.uploadSpeedEl.textContent = uploadSpeed.toFixed(2) + ' Mbps';
             this.uploadSpeedEl.parentElement.classList.add('active');
 
-            // Completed
             this.updateProgress(100, 'Test completed!');
             this.updateDetails();
         } catch (error) {
@@ -53,6 +50,7 @@ class SpeedTest {
         } finally {
             this.testInProgress = false;
             this.startButton.disabled = false;
+            this.startButton.textContent = 'Start Speed Test';
         }
     }
 
@@ -70,7 +68,6 @@ class SpeedTest {
                 const end = performance.now();
                 totalPing += (end - start);
             } catch (e) {
-                // Fallback: use timestamp approach
                 const start = Date.now();
                 await new Promise(resolve => setTimeout(resolve, 10));
                 const end = Date.now();
@@ -82,8 +79,8 @@ class SpeedTest {
     }
 
     async measureDownloadSpeed() {
-        const fileSize = 1024 * 1024; // 1 MB
-        const testDuration = 5000; // 5 seconds
+        const fileSize = 1024 * 1024;
+        const testDuration = 5000;
         let totalDownloaded = 0;
         const startTime = performance.now();
 
@@ -91,18 +88,13 @@ class SpeedTest {
             try {
                 const blob = new Blob([new ArrayBuffer(fileSize)]);
                 const url = URL.createObjectURL(blob);
-                
-                const fetchStart = performance.now();
                 const response = await fetch(url, { cache: 'no-store' });
-                const fetchEnd = performance.now();
-                
+
                 await response.blob();
                 totalDownloaded += fileSize;
                 URL.revokeObjectURL(url);
 
                 this.updateDataTransferred(totalDownloaded);
-
-                // Simulate network delay
                 await new Promise(resolve => setTimeout(resolve, 100));
             } catch (error) {
                 console.error('Download test error:', error);
@@ -116,8 +108,8 @@ class SpeedTest {
     }
 
     async measureUploadSpeed() {
-        const fileSize = 512 * 1024; // 512 KB
-        const testDuration = 5000; // 5 seconds
+        const fileSize = 512 * 1024;
+        const testDuration = 5000;
         let totalUploaded = 0;
         const startTime = performance.now();
 
@@ -127,18 +119,14 @@ class SpeedTest {
                 const formData = new FormData();
                 formData.append('file', blob);
 
-                const uploadStart = performance.now();
                 await fetch('data:,', {
                     method: 'POST',
                     body: formData,
                     cache: 'no-store'
-                }).catch(() => {}); // Expected to fail, but we're measuring time
-                const uploadEnd = performance.now();
+                }).catch(() => {});
 
                 totalUploaded += fileSize;
                 this.updateDataTransferred(totalUploaded);
-
-                // Simulate network delay
                 await new Promise(resolve => setTimeout(resolve, 100));
             } catch (error) {
                 console.error('Upload test error:', error);
@@ -185,7 +173,6 @@ class SpeedTest {
     }
 }
 
-// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new SpeedTest();
 });
