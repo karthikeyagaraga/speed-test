@@ -72,10 +72,22 @@ body {
 
 .hero {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
     gap: 28px;
-    align-items: center;
+    align-items: start;
     padding: 20px 0 40px;
+}
+
+.hero-right {
+    display: grid;
+    gap: 20px;
+    justify-self: end;
+    align-self: start;
+}
+
+.hero-right .launch-card,
+.hero-right .results-card {
+    width: 100%;
 }
 
 .eyebrow {
@@ -149,13 +161,18 @@ body {
     border: 1px solid var(--border);
 }
 
-.hero-visual {
-    display: flex;
-    justify-content: center;
+.hero-right {
+    display: grid;
+    gap: 20px;
+    justify-items: center;
+}
+
+.hero-right .launch-card,
+.hero-right .results-card {
+    width: min(100%, 420px);
 }
 
 .launch-card {
-    width: min(100%, 420px);
     background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
     border: 1px solid var(--border);
     border-radius: 28px;
@@ -377,6 +394,24 @@ body {
     border-left: 3px solid var(--primary);
 }
 
+.page-footer {
+    margin-top: 32px;
+    padding: 18px 24px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.page-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+.page-footer a:hover {
+    text-decoration: underline;
+}
+
 .detail-label {
     color: var(--muted);
     font-size: 0.8em;
@@ -403,7 +438,7 @@ body {
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .hero {
         grid-template-columns: 1fr;
     }

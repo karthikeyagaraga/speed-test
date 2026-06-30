@@ -1,9 +1,13 @@
 class SpeedTest {
     constructor() {
         this.startButton = document.getElementById('startButton');
+        this.startButtonMain = document.getElementById('startButtonMain');
         this.downloadSpeedEl = document.getElementById('downloadSpeed');
         this.uploadSpeedEl = document.getElementById('uploadSpeed');
         this.pingEl = document.getElementById('ping');
+        this.heroDownloadEl = document.getElementById('heroDownload');
+        this.heroUploadEl = document.getElementById('heroUpload');
+        this.heroPingEl = document.getElementById('heroPing');
         this.progressFill = document.getElementById('progressFill');
         this.progressText = document.getElementById('progressText');
         this.statusValue = document.getElementById('statusValue');
@@ -11,6 +15,9 @@ class SpeedTest {
         this.dataTransferred = document.getElementById('dataTransferred');
 
         this.startButton.addEventListener('click', () => this.startTest());
+        if (this.startButtonMain) {
+            this.startButtonMain.addEventListener('click', () => this.startTest());
+        }
 
         this.testInProgress = false;
         this.testStartTime = null;
@@ -29,16 +36,25 @@ class SpeedTest {
             this.updateProgress(0, 'Measuring ping...');
             const ping = await this.measurePing();
             this.pingEl.textContent = ping.toFixed(2) + ' ms';
+            if (this.heroPingEl) {
+                this.heroPingEl.textContent = ping.toFixed(2) + ' ms';
+            }
             this.pingEl.parentElement.classList.add('active');
 
             this.updateProgress(33, 'Testing download speed...');
             const downloadSpeed = await this.measureDownloadSpeed();
             this.downloadSpeedEl.textContent = downloadSpeed.toFixed(2) + ' Mbps';
+            if (this.heroDownloadEl) {
+                this.heroDownloadEl.textContent = downloadSpeed.toFixed(2) + ' Mbps';
+            }
             this.downloadSpeedEl.parentElement.classList.add('active');
 
             this.updateProgress(66, 'Testing upload speed...');
             const uploadSpeed = await this.measureUploadSpeed();
             this.uploadSpeedEl.textContent = uploadSpeed.toFixed(2) + ' Mbps';
+            if (this.heroUploadEl) {
+                this.heroUploadEl.textContent = uploadSpeed.toFixed(2) + ' Mbps';
+            }
             this.uploadSpeedEl.parentElement.classList.add('active');
 
             this.updateProgress(100, 'Test completed!');
