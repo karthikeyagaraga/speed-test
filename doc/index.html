@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedCheck | Internet Speed Test</title>
+    <meta name="description" content="A modern speed test website inspired by leading online speed testing experiences.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <nav class="navbar">
+            <a class="brand" href="#">
+                <span class="brand-mark">⚡</span>
+                SpeedCheck
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#results">Results</a>
+                <a href="#test">Start test</a>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Fast, simple, accurate</p>
+                <h1>Test your internet speed in seconds.</h1>
+                <p class="hero-text">Measure your download speed, upload speed, and ping with a clean experience built for everyday browsing.</p>
+                <div class="hero-actions">
+                    <a class="primary-btn" href="#test">Start speed test</a>
+                    <a class="secondary-btn" href="#features">Learn more</a>
+                </div>
+                <ul class="hero-highlights">
+                    <li>No signup required</li>
+                    <li>Works on any device</li>
+                    <li>Instant results</li>
+                </ul>
+            </div>
+
+            <div class="hero-visual">
+                <div class="launch-card">
+                    <div class="pulse-ring">
+                        <button class="start-button main-start-button" id="startButton">GO</button>
+                    </div>
+                    <div class="launch-stats">
+                        <div class="launch-stat">
+                            <span>Ping</span>
+                            <strong id="heroPing">-- ms</strong>
+                        </div>
+                        <div class="launch-stat">
+                            <span>Download</span>
+                            <strong id="heroDownload">-- Mbps</strong>
+                        </div>
+                        <div class="launch-stat">
+                            <span>Upload</span>
+                            <strong id="heroUpload">-- Mbps</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="features" class="section">
+                <div class="section-heading">
+                    <p class="eyebrow">Why it stands out</p>
+                    <h2>A modern experience for measuring your connection</h2>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>Quick results</h3>
+                        <p>See key speed metrics in a simple and readable format.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Clean interface</h3>
+                        <p>Minimal visuals and strong contrast keep the experience focused.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Works everywhere</h3>
+                        <p>Use it on desktop, tablet, or mobile with a responsive layout.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="results" class="section results-section">
+                <div class="results-card">
+                    <div class="results-top">
+                        <div>
+                            <p class="eyebrow">Live results</p>
+                            <h2>Your connection at a glance</h2>
+                        </div>
+                        <div class="status-pill" id="statusBadge">Ready</div>
+                    </div>
+
+                    <div class="status-display">
+                        <div class="metric">
+                            <div class="metric-label">Download</div>
+                            <div class="metric-value" id="downloadSpeed">-- Mbps</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Upload</div>
+                            <div class="metric-value" id="uploadSpeed">-- Mbps</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Ping</div>
+                            <div class="metric-value" id="ping">-- ms</div>
+                        </div>
+                    </div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <p class="progress-text" id="progressText">Ready to test</p>
+                    </div>
+
+                    <button class="start-button" id="startButton">Start Speed Test</button>
+
+                    <div class="details-section">
+                        <h2>Test Details</h2>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Status</span>
+                                <span class="detail-value" id="statusValue">Idle</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Test Time</span>
+                                <span class="detail-value" id="testTime">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Data Transferred</span>
+                                <span class="detail-value" id="dataTransferred">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
